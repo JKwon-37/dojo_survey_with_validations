@@ -15,7 +15,13 @@ public class HomeController : Controller
     [HttpPost("method")]
     public IActionResult Method(Survey survey)
     {
-        return RedirectToAction("Result", survey);
+        if (ModelState.IsValid)
+        {
+            return RedirectToAction("Result", survey);
+        } else 
+        {
+            return View("Index");
+        }
     }
 
     [HttpGet("result")]
