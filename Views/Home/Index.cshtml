@@ -1,0 +1,52 @@
+﻿@using DojoSurveyWithValidation.Models
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/style.css">
+        <title>Survey</title>
+    </head>
+    <body>
+        <div class="text-center">
+            <Label>Dojo Survey</Label>
+            <form asp-action="Method" asp-controller="Home" method="post">
+                <div class="form-group">
+                    <span asp-validation-for="Name"></span>
+                    <label asp-for="Name">Name: </label>
+                    <input asp-for="Name" type="text"/>
+                </div>
+                <div class="form-group">
+                    <span asp-validation-for="Location"></span>
+                    <label asp-for="Location">Dojo Location: </label>
+                    <select asp-for="Location" id="Location">
+                        <option value="konoha">Konoha</option>
+                        <option value="eastblue">East Blue</option>
+                        <option value="gothamcity">Gotham City</option>
+                        <option value="pallettown">Pallet Town</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <span asp-validation-for="Language"></span>
+                    <label asp-for="Language">Favorite Language: </label>
+                    <select asp-for="Language" id="Language">
+                        <option value="csharp">C#</option>
+                        <option value="java">Java</option>
+                        <option value="python">Python</option>
+                        <option value="javascript">Javascript</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <span asp-validation-for="Comment"></span>
+                    <label asp-for="Comment">Comments (Optional): </label>
+                    <textarea asp-for="Comment" id="Comments" rows="4" cols="50"></textarea>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Press Start">
+            </form>
+        </div>
+    </body>
+</html>
